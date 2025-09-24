@@ -1,0 +1,131 @@
+.dancing-cat-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.dancing-cat {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.dancing-cat img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+}
+
+.dancing-cat.dancing {
+  animation: catDance 2s infinite ease-in-out;
+}
+
+@keyframes catDance {
+  0% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+  25% {
+    transform: translateY(-20px) rotate(5deg) scale(1.1);
+  }
+  50% {
+    transform: translateY(0) rotate(0deg) scale(1.05);
+  }
+  75% {
+    transform: translateY(-10px) rotate(-5deg) scale(1.1);
+  }
+  100% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+}
+
+.control-button {
+  background: linear-gradient(145deg, #ff6b6b, #ff5252);
+  border: none;
+  border-radius: 50px;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 15px 30px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.control-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
+  background: linear-gradient(145deg, #ff5252, #ff4444);
+}
+
+.control-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 10px rgba(255, 107, 107, 0.4);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dancing-cat.dancing {
+    animation: none;
+  }
+
+  .dancing-cat.dancing {
+    animation: gentleBounce 3s infinite ease-in-out;
+  }
+
+  @keyframes gentleBounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .dancing-cat {
+    width: 150px;
+    height: 150px;
+  }
+
+  .control-button {
+    font-size: 1rem;
+    padding: 12px 24px;
+  }
+
+  @keyframes catDance {
+    0% {
+      transform: translateY(0) rotate(0deg) scale(1);
+    }
+    25% {
+      transform: translateY(-15px) rotate(3deg) scale(1.05);
+    }
+    50% {
+      transform: translateY(0) rotate(0deg) scale(1.02);
+    }
+    75% {
+      transform: translateY(-8px) rotate(-3deg) scale(1.05);
+    }
+    100% {
+      transform: translateY(0) rotate(0deg) scale(1);
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .dancing-cat {
+    width: 120px;
+    height: 120px;
+  }
+
+  .control-button {
+    font-size: 0.9rem;
+    padding: 10px 20px;
+  }
+}
